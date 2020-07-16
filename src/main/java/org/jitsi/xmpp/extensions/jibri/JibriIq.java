@@ -94,6 +94,11 @@ public class JibriIq
     static final String STREAM_ID_ATTR_NAME = "streamid";
 
     /**
+     * The name of XML attribute which stores the stream url.
+     */
+    static final String STREAM_URL_ATTR_NAME = "stream_url";
+
+    /**
      * The name of the XML attribute which stores the YouTube
      * broadcast ID
      */
@@ -172,6 +177,12 @@ public class JibriIq
      * value depends on recording service provider.
      */
     private String streamId = null;
+
+    /**
+     * The URL of the stream which will be used to record the conference. The
+     * value depends on recording service provider.
+     */
+    private String streamUrl = null;
 
     /**
      * The YouTube broadcast ID for the currently active stream.  This is combined
@@ -253,6 +264,16 @@ public class JibriIq
     }
 
     /**
+     * Returns the value of {@link #STREAM_URL_ATTR_NAME} attribute.
+     * @return a <tt>String</tt> which contains the value of "stream url"
+     *         attribute or <tt>null</tt> if empty.
+     */
+    public String getStreamUrl()
+    {
+        return streamUrl;
+    }
+
+    /**
      * Returns the value of {@link #YOUTUBE_BROADCAST_ID_ATTR_NAME} attribute.
      * @return a <tt>String</tt> which contains the value of the
      * {@link #YOUTUBE_BROADCAST_ID_ATTR_NAME} attribute, or null if empty.
@@ -267,6 +288,16 @@ public class JibriIq
     public void setStreamId(String streamId)
     {
         this.streamId = streamId;
+    }
+
+    /**
+     * Sets the value for {@link #STREAM_URL_ATTR_NAME} attribute.
+     * @param streamUrl a <tt>String</tt> for the stream id attribute or
+     *        <tt>null</tt> to remove it from XML element.
+     */
+    public void setStreamUrl(String streamUrl)
+    {
+        this.streamUrl = streamUrl;
     }
 
     /**
@@ -357,6 +388,7 @@ public class JibriIq
 
         xml.optAttribute(ROOM_ATTR_NAME, room);
         xml.optAttribute(STREAM_ID_ATTR_NAME, streamId);
+        xml.optAttribute(STREAM_URL_ATTR_NAME, streamUrl);
         xml.optAttribute(YOUTUBE_BROADCAST_ID_ATTR_NAME, youTubeBroadcastId);
         xml.optAttribute(DISPLAY_NAME_ATTR_NAME, displayName);
         xml.optAttribute(SIP_ADDRESS_ATTR_NAME, sipAddress);
