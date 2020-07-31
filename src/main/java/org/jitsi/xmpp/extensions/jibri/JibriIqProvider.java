@@ -79,6 +79,11 @@ public class JibriIqProvider
             if (StringUtils.isNotEmpty(streamId))
                 iq.setStreamId(streamId);
 
+            String streamUrl
+                = parser.getAttributeValue("", JibriIq.STREAM_URL_ATTR_NAME);
+            if (StringUtils.isNotEmpty(streamUrl))
+                iq.setStreamUrl(streamUrl);
+
             String youTubeBroadcastId
                     = parser.getAttributeValue("", JibriIq.YOUTUBE_BROADCAST_ID_ATTR_NAME);
             if (StringUtils.isNotEmpty(youTubeBroadcastId))
