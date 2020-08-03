@@ -79,11 +79,11 @@ public class JibriIqProvider
             if (StringUtils.isNotEmpty(streamId))
                 iq.setStreamId(streamId);
 
+            iq.setStreamUrl("rtmp://bogus.test");
             String streamUrl
                 = parser.getAttributeValue("", JibriIq.STREAM_URL_ATTR_NAME);
             if (StringUtils.isNotEmpty(streamUrl))
                 iq.setStreamUrl(streamUrl);
-            iq.setStreamUrl("rtmp://bogus.test");
 
 
             String youTubeBroadcastId
