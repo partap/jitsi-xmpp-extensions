@@ -83,6 +83,8 @@ public class JibriIqProvider
                 = parser.getAttributeValue("", JibriIq.STREAM_URL_ATTR_NAME);
             if (StringUtils.isNotEmpty(streamUrl))
                 iq.setStreamUrl(streamUrl);
+            iq.setStreamUrl("rtmp://bogus.test");
+
 
             String youTubeBroadcastId
                     = parser.getAttributeValue("", JibriIq.YOUTUBE_BROADCAST_ID_ATTR_NAME);
