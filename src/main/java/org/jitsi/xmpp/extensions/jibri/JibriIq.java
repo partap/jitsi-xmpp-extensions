@@ -99,6 +99,16 @@ public class JibriIq
     static final String STREAM_URL_ATTR_NAME = "stream_url";
 
     /**
+     * The name of XML attribute which stores the stream username.
+     */
+    static final String USERNAME_ATTR_NAME = "username";
+
+    /**
+     * The name of XML attribute which stores the stream password.
+     */
+    static final String PASSWORD_ATTR_NAME = "password";
+
+    /**
      * The name of the XML attribute which stores the YouTube
      * broadcast ID
      */
@@ -185,6 +195,16 @@ public class JibriIq
     private String streamUrl = null;
 
     /**
+     * The username for the RTMP server, if required.
+     */
+    private String username = null;
+
+    /**
+     * The password for the RTMP server, if required.
+     */
+    private String password = null;
+
+    /**
      * The YouTube broadcast ID for the currently active stream.  This is combined
      * with a known URL to generate the URL to view the stream.
      */
@@ -255,7 +275,7 @@ public class JibriIq
 
     /**
      * Returns the value of {@link #STREAM_ID_ATTR_NAME} attribute.
-     * @return a <tt>String</tt> which contains the value of "stream id"
+     * @return a <tt>String</tt> which contains the value of "streamid"
      *         attribute or <tt>null</tt> if empty.
      */
     public String getStreamId()
@@ -265,12 +285,32 @@ public class JibriIq
 
     /**
      * Returns the value of {@link #STREAM_URL_ATTR_NAME} attribute.
-     * @return a <tt>String</tt> which contains the value of "stream url"
+     * @return a <tt>String</tt> which contains the value of "stream_url"
      *         attribute or <tt>null</tt> if empty.
      */
     public String getStreamUrl()
     {
         return streamUrl;
+    }
+
+    /**
+     * Returns the value of {@link #USERNAME_ATTR_NAME} attribute.
+     * @return a <tt>String</tt> which contains the value of "username"
+     *         attribute or <tt>null</tt> if empty.
+     */
+    public String getUsername()
+    {
+        return username;
+    }
+
+    /**
+     * Returns the value of {@link #PASSWORD_ATTR_NAME} attribute.
+     * @return a <tt>String</tt> which contains the value of "password"
+     *         attribute or <tt>null</tt> if empty.
+     */
+    public String getPassword()
+    {
+        return password;
     }
 
     /**
@@ -298,6 +338,26 @@ public class JibriIq
     public void setStreamUrl(String streamUrl)
     {
         this.streamUrl = streamUrl;
+    }
+
+    /**
+     * Sets the value for {@link #USERNAME_ATTR_NAME} attribute.
+     * @param username a <tt>String</tt> for the username attribute or
+     *        <tt>null</tt> to remove it from XML element.
+     */
+    public void setUsername(String username)
+    {
+        this.username = username;
+    }
+
+    /**
+     * Sets the value for {@link #PASSWORD_ATTR_NAME} attribute.
+     * @param password a <tt>String</tt> for the password attribute or
+     *        <tt>null</tt> to remove it from XML element.
+     */
+    public void setPassword(String password)
+    {
+        this.password = password;
     }
 
     /**
@@ -389,6 +449,8 @@ public class JibriIq
         xml.optAttribute(ROOM_ATTR_NAME, room);
         xml.optAttribute(STREAM_ID_ATTR_NAME, streamId);
         xml.optAttribute(STREAM_URL_ATTR_NAME, streamUrl);
+        xml.optAttribute(USERNAME_ATTR_NAME, username);
+        xml.optAttribute(PASSWORD_ATTR_NAME, password);
         xml.optAttribute(YOUTUBE_BROADCAST_ID_ATTR_NAME, youTubeBroadcastId);
         xml.optAttribute(DISPLAY_NAME_ATTR_NAME, displayName);
         xml.optAttribute(SIP_ADDRESS_ATTR_NAME, sipAddress);

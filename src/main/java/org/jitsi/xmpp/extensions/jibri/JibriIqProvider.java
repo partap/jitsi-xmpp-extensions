@@ -84,6 +84,16 @@ public class JibriIqProvider
             if (StringUtils.isNotEmpty(streamUrl))
                 iq.setStreamUrl(streamUrl);
 
+            String username
+                = parser.getAttributeValue("", JibriIq.USERNAME_ATTR_NAME);
+            if (StringUtils.isNotEmpty(username))
+                iq.setUsername(username);
+
+            String password
+                = parser.getAttributeValue("", JibriIq.PASSWORD_ATTR_NAME);
+            if (StringUtils.isNotEmpty(password))
+                iq.setPassword(password);
+
 
             String youTubeBroadcastId
                     = parser.getAttributeValue("", JibriIq.YOUTUBE_BROADCAST_ID_ATTR_NAME);
